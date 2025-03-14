@@ -1,0 +1,8 @@
+/* Add your custom styles here */
+.notion-connector-container {
+    padding: 24px;
+} 
+
+.text-left {
+    text-align: left !important;
+}
