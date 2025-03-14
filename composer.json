@@ -13,9 +13,9 @@
         }
     },
     "require": {
-        "php": "^8.1|^8.2|^8.3",
-        "statamic/cms": "^4.0|^5.0",
-        "illuminate/support": "^10.0",
+        "php": "^8.2",
+        "statamic/cms": "^5.0",
+        "illuminate/support": "^11.0",
         "guzzlehttp/guzzle": "^7.0"
     },
     "require-dev": {
@@ -40,8 +40,8 @@
     },
     "extra": {
         "statamic": {
-            "name": "Notion Connector",
-            "description": "Connect Statamic with Notion API"
+            "name": "Statamic Notion Connector",
+            "description": "Connect Notion databases to Statamic collections"
         },
         "laravel": {
             "providers": [
