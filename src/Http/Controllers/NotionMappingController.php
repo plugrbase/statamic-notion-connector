@@ -119,6 +119,7 @@ class NotionMappingController extends CpController
 
         return view('statamic-notion-connector::mappings.edit', [
             'mapping' => $mapping,
+            'collection' => Collection::findByHandle($mapping->collection_handle)?->entryBlueprint()->fields()->all() ?? [],
             'collections' => Collection::all(),
             'fields' => $fields[0]['properties'] ?? [],
             'databases' => $databases ?? []

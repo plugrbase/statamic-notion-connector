@@ -89,9 +89,10 @@
                                     <td class="py-2">
                                         <div class="select-input-container">
                                             <select name="field_mappings[{{ $notionField }}]" 
-                                                    class="select-input w-full">
+                                                    class="select-input w-full"
+>
                                                 <option value="">Select Statamic field...</option>
-                                                @foreach($collections->first()->entryBlueprint()->fields()->all() as $handle => $field)
+                                                @foreach($collection->entryBlueprint()->fields()->all() as $handle => $field)
                                                     <option value="{{ $handle }}"
                                                             {{ old("field_mappings.$notionField", $mapping->field_mappings[$notionField] ?? '') == $handle ? 'selected' : '' }}>
                                                         {{ $field->display() }}
