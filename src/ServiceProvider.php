@@ -15,12 +15,7 @@ class ServiceProvider extends AddonServiceProvider
 
     protected $viewNamespace = 'statamic-notion-connector';
 
-    protected $vite = [
-        'input' => [
-            'resources/js/cp.js'
-        ],
-        'publicDirectory' => 'resources/dist',
-    ];
+    protected $vite = [];
 
     public function boot()
     {
