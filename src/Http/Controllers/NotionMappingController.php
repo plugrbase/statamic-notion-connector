@@ -287,12 +287,9 @@ class NotionMappingController extends CpController
     }
 
     protected function generateSlug($pageData, $mapping)
-    {
-        // Try to get title from mapped fields
-        $titleField = array_search('title', $mapping->field_mappings) ?? 'Title';
-        
+    {        
         // Get the title value from Notion page data
-        $title = $pageData['properties'][$titleField]['title'][0]['plain_text'] ?? null;
+        $title = $pageData['properties']['Name']['title'][0]['plain_text'] ?? null;
         
         if ($title) {
             return str()->slug($title);
