@@ -21,6 +21,17 @@
     "require-dev": {
         "orchestra/testbench": "^8.0"
     },
+    "scripts": {
+        "lint": [
+            "php-cs-fixer fix ./src"
+        ],
+        "test": [
+            "php -d memory_limit=-1 -d max_execution_time=0 ./vendor/bin/phpunit"
+        ],
+        "pre-update-cmd": [
+            "Statamic\\Console\\Composer\\Scripts::preUpdateCmd"
+        ]
+    },
     "config": {
         "allow-plugins": {
             "pixelfear/composer-dist-plugin": true,

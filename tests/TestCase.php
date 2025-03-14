@@ -3,9 +3,9 @@
 namespace Plugrbase\StatamicNotionConnector\Tests;
 
 use Plugrbase\StatamicNotionConnector\ServiceProvider;
-use Statamic\Testing\AddonTestCase;
+use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
-abstract class TestCase extends AddonTestCase
+abstract class TestCase extends OrchestraTestCase
 {
     protected string $addonServiceProvider = ServiceProvider::class;
 }
