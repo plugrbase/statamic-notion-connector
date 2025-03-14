@@ -1,0 +1,38 @@
+name: Test Suite
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  php_tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php: [8.0, 8.1, 8.2]
+        statamic: [4.0.*]
+        os: [ubuntu-latest]
+        include:
+          - testbench: 7.*
+
+    name: ${{ matrix.php }} - Statamic ${{ matrix.statamic }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer:v2
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
+
+      - name: Install dependencies
+        run: |
+          composer require "statamic/cms:${{ matrix.statamic }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer install --no-interaction
+
+      - name: Run PHPUnit
+        run: composer test
