@@ -79,8 +79,6 @@ class NotionMappingController extends CpController
 
             $rows = $database['results'] ?? [];
 
-            ray($rows);
-
             return view('statamic-notion-connector::mappings.show', [
                 'mapping' => $mapping,
                 'database' => $database,
@@ -212,6 +210,7 @@ class NotionMappingController extends CpController
             $entry = Entry::make()
                 ->collection($mapping->collection_handle)
                 ->slug($this->generateSlug($pageData, $mapping))
+                ->published(false)
                 ->data($statamicData);
 
             $entry->save();
